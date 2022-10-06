@@ -1,6 +1,6 @@
 # busybox-wget-with-retries
 
-A busybox Docker image containing a wget wrapper script that adds a configurable `-t` (retries) option with the ability to override using `WGET_RETRIES` environment
+A busybox Docker image containing a wget wrapper script that adds a configurable `-t` (retries) option with the ability to override using `WGET_TRIES` environment
 
 ## Why?
 

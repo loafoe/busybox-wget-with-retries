@@ -2,7 +2,7 @@
 function retry()
 {
         local n=0
-        local try=${WGET_RETRIES:-20}
+        local try=${WGET_TRIES:-20}
         local cmd="${@: 1}"
         local last_exit=0
 
