@@ -8,6 +8,7 @@ function retry()
 
         until [[ $n -ge $try ]]
         do
+		last_exit=0
                 $cmd && break || {
                         last_exit=$?
                         n=$(expr "$n" + 1)
