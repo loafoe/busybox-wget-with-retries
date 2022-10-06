@@ -1,2 +1,21 @@
 #!/bin/sh
-/bin/wget -t${WGET_RETRIES:-30} $@
+function retry()
+{
+        local n=0
+        local try=${WGET_RETRIES:-20}
+        local cmd="${@: 1}"
+        local last_exit=0
+
+        until [[ $n -ge $try ]]
+        do
+                $cmd && break || {
+                        last_exit=$?
+                        n=$(expr "$n" + 1)
+                        echo "retry $n"
+                        sleep 1;
+                        }
+        done
+	return $last_exit
+}
+
+retry /bin/wget $@
