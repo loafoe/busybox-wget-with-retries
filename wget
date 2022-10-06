@@ -1,0 +1,2 @@
+#!/bin/sh
+/bin/wget -t${WGET_RETRIES:-30} $@
